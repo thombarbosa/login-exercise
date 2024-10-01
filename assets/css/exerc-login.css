@@ -1,0 +1,154 @@
+:root {
+    --blue: #31429f;
+    --blue-darker: #232f70;
+    --gray: #acacac;
+    --white: #ffffff;
+    --focus-red: rgb(175, 0, 0);
+    --transition-time: 0.3s;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--gray);
+    font-family: 'Open Sans', sans-serif;
+}
+
+.login-form {
+    background-color: var(--blue);
+    border-radius: 15px;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    padding: 20px;
+    color: var(--white);
+    margin: 100px auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform var(--transition-time) ease-in-out;
+}
+
+.login-form:hover {
+    transform: scale(1.05);
+}
+
+/*❌ input email*/
+.input-container {
+    position: relative;
+    /* Para posicionar o botão de limpar corretamente */
+    width: 100%;
+    /* Ajuste conforme necessário */
+}
+
+.clear-input {
+    position: absolute;
+    right: 2px;
+    /* Ajuste a distância do lado direito */
+    top: 50%;
+    /* Centraliza verticalmente */
+    transform: translateY(-50%);
+    /* Corrige o alinhamento */
+    cursor: pointer;
+    color: var(--focus-red);
+    /* Cor do "X" */
+    font-size: 10px;
+    /* Ajuste o tamanho conforme necessário */
+    display: none;
+    /* Oculta por padrão */
+    background-color: var(--blue-darker);
+    height: 20px;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+/* Mostra o "X" quando o input não está vazio */
+.input-container input:not(:placeholder-shown)+.clear-input {
+    display: block;
+    /* Exibe o "X" */
+}
+
+
+.login-form label,
+.login-form input {
+    font-size: 15px;
+    width: 100%;
+    margin-bottom: 10px;
+    font-weight: 600;
+    display: block;
+}
+
+.login-form input {
+    padding: 10px;
+    border: 1px solid var(--blue);
+    border-radius: 5px;
+    background-color: var(--blue-darker);
+    color: var(--white);
+    transition: box-shadow var(--transition-time);
+}
+
+.login-form input:hover,
+.login-form input:focus {
+    outline: none;
+    box-shadow: 0 0 5px var(--white);
+}
+
+.login-form button {
+    display: block;
+    width: 50%;
+    margin: 25px auto 0;
+    margin-bottom: 30px;
+    padding: 10px;
+    border: 1px solid var(--blue-darker);
+    border-radius: 5px;
+    cursor: pointer;
+    color: var(--white);
+    background-color: var(--blue-darker);
+    font-size: 15px;
+    font-weight: 600;
+    transition: background-color var(--transition-time), box-shadow var(--transition-time);
+}
+
+.login-form button:hover {
+    background-color: var(--blue);
+    box-shadow: 0 0 5px var(--white);
+}
+
+.login-form h1 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.login-form a {
+    display: block;
+    text-decoration: none;
+    color: var(--white);
+    text-align: center;
+    margin-top: 8px;
+    font-size: 13px;
+    transition: color var(--transition-time);
+}
+
+.login-form a:hover {
+    text-decoration: underline;
+    color: var(--white);
+}
+
+/* Estilos para o autocomplete do WebKit */
+.login-form input:-webkit-autofill {
+    background-color: var(--blue-darker) !important;
+    color: var(--white) !important;
+    -webkit-box-shadow: 0 0 0px 1000px var(--blue-darker) inset;
+    -webkit-text-fill-color: var(--white) !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.login-form input:-webkit-autofill:hover,
+.login-form input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px var(--blue-darker) inset;
+    background-color: var(--blue-darker) !important;
+    color: var(--white) !important;
+    -webkit-text-fill-color: var(--white) !important;
+}
